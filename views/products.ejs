@@ -1,0 +1,40 @@
+    <% include ("partials/head") %> 
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+        </ul>
+    </nav>
+    <div class="container">        
+        <h1>Products</h1>
+            <table class="table table.bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <%for(var i=0; i<items.length; i++)  {%> 
+                <tr>
+                    <td>
+                        <strong>
+                            <%= items[i].name %> 
+                        </strong>
+                    </td>                    
+                </tr>
+                <% }%>
+                </tbody>
+            </table>
+    </div>
+
+    <h3>Add a new product</h3>
+
+    <form action='/new-product', method="POST">
+        <input type="text" name="newItem" id='newItem'>
+        <button>Add a Product</button>
+    </form>
+
+    <script>
+        const txtNewItem = document.getElementById('newItem');
+        txtNewItem.focus();
+    </script>
+    <% include ("partials/footer") %> 
